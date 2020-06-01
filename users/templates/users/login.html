@@ -1,0 +1,26 @@
+{% extends 'users/base_login.html' %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        Acceder
+    </div>
+    <div class="card-content p-2">
+        <form data-role="validator" method="POST">
+            {% csrf_token %}
+            <div class="row mb-2">
+                <div class="cell-md-6">
+                    <label>Nombre de Usuario</label>
+                    <input type="text" data-validate="required" placeholder="Ingresar Nombre de Usuario"
+                        name="username">
+                </div>
+                <div class="cell-md-6">
+                    <label>Contraseña</label>
+                    <input type="password" data-validate="required" placeholder="Ingresar su Contraseña"
+                        name="password">
+                </div>
+            </div>
+            <button class="button primary" type="submit">Acceder</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
