@@ -1,16 +1,28 @@
-from django import forms
+from django.forms import ModelForm
 
 from .models import Commentarie
 
 
-class CommentarieForm(forms.ModelForm):
+class CommentarieForm(ModelForm):
     class Meta:
         model = Commentarie
         fields = [
-            'title', 'description', 'image', 'slug'
+            'title', 'description', 'image'
         ]
         labels = {
             'title': 'Titulo',
             'description': 'Descripcion',
             'image': 'Imagen',
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['title'].widget.attrs.update({
+            'data-role': 'input',
+        })
+        self.fields['description'].widget.attrs.update({
+            'data-role': 'textarea',
+        })
+        self.fields['image'].widget.attrs.update({
+            'data-role': 'file',
+        })

@@ -1,0 +1,16 @@
+<div class="card-header">
+    {% if profile.avatar %}
+        <img src="{{ profile.avatar.url }}" alt="Imagen de Usuario" class="avatar">
+    {% endif %}
+    <div class="name">{{ commentarie.user.username }}</div>
+</div>
+<div class="card-content p-2">
+    <div class="fg-gray">Publicacion hecha el {{ commentarie.created_at }}</div>
+    <div>{{ commentarie.title }}</div>
+    {{ commentarie.description }}
+    {% if commentarie.image %}
+        <div class="img-container">
+            <img src="{{ commentarie.image.url }}" alt="">
+        </div>
+    {% endif %}
+</div>

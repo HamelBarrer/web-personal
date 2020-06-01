@@ -1,4 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Hola</h1>
+    <div class="cell-md-12">
+        <div class="card">
+            {% for fields in object_list %}
+                {% include 'commentaries/snippets/commentaries.html' with commentarie=fields %}
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
