@@ -22,7 +22,8 @@ class CommentarieListView(LoginRequiredMixin, ListView):
         return context
 
 
-class CommentarieCreateView(CreateView):
+class CommentarieCreateView(LoginRequiredMixin,CreateView):
+    login_url = 'users:login'
     template_name = 'commentaries/add_commentarie.html'
     model = Commentarie
     form_class = CommentarieForm
