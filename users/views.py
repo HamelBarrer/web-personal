@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 
 from .models import User
+from .forms import RegisterForm
 
 
 def login_view(request):
@@ -31,3 +32,21 @@ def logout_view(request):
     logout(request)
     messages.success(request, 'Sesion cerrada exitosamente')
     return redirect('users:login')
+
+
+def register_view(request):
+    if request.user.is_authenticated:
+        return redirect('commentaries:commentarie')
+    template_name = 'users/register.html'
+    form = RegisterForm(request.POST)
+    if request.method == 'POST' and form.is_valid():
+        user = form.save()
+        if user:
+            login(request, user)
+            messages.success(
+                request, f'El usuario {user.username} fue creado exitosamente')
+            return redirect('commentaries:commentarie')
+
+    return render(request, template_name, {
+        'form': form,
+    })

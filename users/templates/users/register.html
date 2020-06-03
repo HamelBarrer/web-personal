@@ -1,0 +1,23 @@
+{% extends 'users/base_login.html' %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        Acceder
+    </div>
+    <div class="card-content p-2">
+        <form data-role="validator" method="POST">
+            {% csrf_token %}
+            <div class="row mb-2">
+                {% for fields in form %}
+                    <div class="cell-md-6">
+                        {{ fields.label_tag }}
+                        {{ fields }}
+                    </div>
+                {% endfor %}
+            </div>
+            <button class="button primary" type="submit">Crear Cuenta</button>
+            <a href="{% url 'users:login' %}" class="button alert">Cancelar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
