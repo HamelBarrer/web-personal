@@ -1,10 +1,12 @@
 {% url 'users:logout' as logout %}
 {% url 'commentaries:commentarie' as commentarie %}
 {% url 'commentaries:add_commentarie' as add_commentarie %}
+{% url 'profiles:profil' as profil %}
 
 <ul class="h-menu">
     <li><a href="{{ commentarie }}"><span class="mif-comment"></span> Comentarios</a></li>
     <li><a href="{{ add_commentarie }}"><span class="mif-note-add"></span> Crear Comentarios</a></li>
     <li><a href="#"><span class="mif-chart-pie"></span> Graficos</a></li>
+    <li><a href="{{ profil }}"><span class="mif-user"></span> Perfil</a></li>
     <li><a href="{{ logout }}"><span class="mif-chart-pie"></span> Cerrar Sesion</a></li>
 </ul>
