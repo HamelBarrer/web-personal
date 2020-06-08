@@ -3,18 +3,21 @@
 <div class="row">
     <div class="cell-sm-12 cell-md-4">
         {% if profile.avatar %}
-            <div class="img-container">
+            <div class="img-container drop-shadow">
                 <img src="{{ profile.avatar.url }}" alt="Imagen del Perfil">
-                <div class="image-overlay">
-                    <h2 class="text-light">Image title</h2>
-                    <p>
-                        Ubi est noster nix? An unveiled form of issue is the awareness.
-                    </p>
-                    <a href="#">Hola</a>
-                </div>
+            </div>
+            <div class="mt-2">
+                <a href="#" class="button primary">Cambiar foto</a>
             </div>
         {% endif %}
     </div>
-    <div class="cell-sm-12 cell-md-8"></div>
+    <div class="cell-sm-12 cell-md-8">
+        <div class="card">
+            <div class="card-header">
+                Nombre de Usuario: {{ profile.user.username }}
+                Biografia: {{ profile.biography }}
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

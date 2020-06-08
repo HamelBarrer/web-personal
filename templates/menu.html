@@ -3,10 +3,29 @@
 {% url 'commentaries:add_commentarie' as add_commentarie %}
 {% url 'profiles:profil' as profil %}
 
-<ul class="h-menu">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ logout }}">
+                    Cerrar Sesion
+                    <span><i class="fas fa-sign-in-alt"></i></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- <ul class="h-menu">
     <li><a href="{{ commentarie }}"><span class="mif-comment"></span> Comentarios</a></li>
     <li><a href="{{ add_commentarie }}"><span class="mif-note-add"></span> Crear Comentarios</a></li>
     <li><a href="#"><span class="mif-chart-pie"></span> Graficos</a></li>
     <li><a href="{{ profil }}"><span class="mif-user"></span> Perfil</a></li>
     <li><a href="{{ logout }}"><span class="mif-chart-pie"></span> Cerrar Sesion</a></li>
-</ul>
+</ul> -->
