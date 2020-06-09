@@ -1,10 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="cell-md-12">
+    <div class="col-md-12">
         {% for fields in object_list %}
-            <div class="card">
-                {% include 'commentaries/snippets/commentaries.html' with commentarie=fields %}
-            </div>
+            {% include 'commentaries/snippets/commentaries.html' with commentarie=fields %}
         {% endfor %}
     </div>
 {% endblock %}

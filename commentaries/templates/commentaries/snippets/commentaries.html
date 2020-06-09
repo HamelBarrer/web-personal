@@ -1,19 +1,41 @@
-<div class="card-header">
-    {% if profile.avatar %}
-        <img src="{{ profile.avatar.url }}" alt="Imagen de Usuario" class="avatar">
-    {% endif %}
-    <div class="name">{{ commentarie.user.username }}</div>
-</div>
-<div class="card-content p-2">
-    <div class="fg-gray">Publicacion hecha el {{ commentarie.created_at }}</div>
-    <div>{{ commentarie.title }}</div>
-    {{ commentarie.description }}
+<div class="card mt-2">
     {% if commentarie.image %}
-        <div class="img-container">
-            <img src="{{ commentarie.image.url }}" alt="">
-        </div>
+        <img src="{{ commentarie.image.url }}" class="card-img-top img-fluid" alt="Imagen de Usuario">
     {% endif %}
-    <div class="mt-2">
-        <a href="#" class="button primary">Crear Comentario</a>
+    <div class="row">
+        <div class="col-sm-12 col-md-11">
+            <div class="card-body">
+                <h3 class="card-title">{{ commentarie.user.username }}</h3>
+                <h4 class="card-title">{{ commentarie.title }}</h4>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="card-body">
+                {% if profile.avatar %}
+                    <img src="{{ profile.avatar.url }}" alt="Imagen de Usuario" class="card-img img-fluid rounded-circle">
+                {% endif %}
+            </div>
+        </div>
     </div>
 </div>
+
+<!-- <div class="card">
+    {% if profile.avatar %}
+        <img src="{{ profile.avatar.url }}" alt="Imagen de Usuario" class="card-img">
+    {% endif %}
+    <div class="card-body">
+        <h3 class="card-title">{{ commentarie.user.username }}</h3>
+        <div class="card-text">Publicacion hecha el {{ commentarie.created_at }}</div>
+        <div>{{ commentarie.title }}</div>
+        {{ commentarie.description }}
+        {% if commentarie.image %}
+            <div class="img-container">
+                <img src="{{ commentarie.image.url }}" alt="">
+            </div>
+        {% endif %}
+        <div class="mt-2">
+            <a href="#" class="button primary">Crear Comentario</a>
+        </div>
+    </div>
+</div> -->

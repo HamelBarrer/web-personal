@@ -11,7 +11,7 @@ class RegisterForm(forms.Form):
         label='Nombre de Usuario',
         widget=forms.TextInput(
             attrs={
-                'data-role':'input'
+                'class': 'form-control',
             }
         )
     )
@@ -20,7 +20,7 @@ class RegisterForm(forms.Form):
         label='Correo Electronico',
         widget=forms.EmailInput(
             attrs={
-                'data-role':'input'
+                'class': 'form-control',
             }
         )
     )
@@ -29,7 +29,7 @@ class RegisterForm(forms.Form):
         label='Contraseña',
         widget=forms.PasswordInput(
             attrs={
-                'data-role':'input'
+                'class': 'form-control',
             }
         )
     )
@@ -38,7 +38,7 @@ class RegisterForm(forms.Form):
         label='Repita la contraseña',
         widget=forms.PasswordInput(
             attrs={
-                'data-role':'input'
+                'class': 'form-control',
             }
         )
     )
