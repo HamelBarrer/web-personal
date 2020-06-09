@@ -13,6 +13,5 @@ def profile_view(request):
     profile = Profile.objects.filter(user=user).first()
 
     return render(request, template_name, {
-        'user': user,
         'profile': profile,
     })

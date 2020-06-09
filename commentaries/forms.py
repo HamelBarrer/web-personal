@@ -18,11 +18,11 @@ class CommentarieForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['title'].widget.attrs.update({
-            'data-role': 'input',
+            'class': 'form-control',
         })
         self.fields['description'].widget.attrs.update({
-            'data-role': 'textarea',
+            'class': 'form-control',
         })
         self.fields['image'].widget.attrs.update({
-            'data-role': 'file',
+            'class': 'form-control',
         })
