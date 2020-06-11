@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import View
 from django.contrib.auth.decorators import login_required
+
+from users.forms import UserForm
 
 from .models import Profile
 from .forms import ProfileForm
@@ -20,11 +22,18 @@ def profile_view(request):
 @login_required(login_url='users:login')
 def edit_view(request, id):
     template_name = 'profiles/snippets/edit_profile.html'
-    form = ProfileForm(request.POST)
-    if request.method == 'POST' and form.is_valid():
-        avatar = request.method.POST.get('avatar')
-        biography = request.method.POST.get('biography')
+
+    profile = Profile.objects.get(user=request.user)
+    profile_form = ProfileForm(
+        request.POST, request.FILES, instance=profile)
+    user_form = UserForm(request.POST, instance=request.user)
+    if request.method == 'POST':
+        if profile_form.is_valid() and user_form.is_valid():
+            profile_form.save()
+            user_form.save()
+            return redirect('profiles:profil')
 
     return render(request, template_name, {
-        'form': form,
+        'profile_form': profile_form,
+        'user_form': user_form,
     })

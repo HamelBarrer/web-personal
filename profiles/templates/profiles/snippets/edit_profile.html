@@ -4,21 +4,26 @@
     <div class="d-table-cell align-middle">
         <div class="text-center mt-4">
             <h2>Editar Perfil</h2>
-            <p>Ingrese la informacion en los campos que quiere editar</p>
+            <p>Ingrese la informacion para editar su perfil</p>
         </div>
         <div class="card">
             <div class="card-body">
                 <div class="m-sm-4">
-                    <form method="POST">
+                    <form method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="form-group">
-                            {% for field in form %}
+                            {% for field in user_form %}
+                                {{ field.label_tag }}
+                                {{ field }}
+                            {% endfor %}
+                            {% for field in profile_form %}
                                 {{ field.label_tag }}
                                 {{ field }}
                             {% endfor %}
                         </div>
                         <div class="text-center mt-3">
-                            <button class="btn btn-lg btn-primary">Ingresar</button>
+                            <a href="{% url 'profiles:profil' %}" class="btn btn-danger">Cancelar</a>
+                            <button class="btn btn-success">Cambiar</button>
                         </div>
                     </form>
                 </div>

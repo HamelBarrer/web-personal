@@ -24,5 +24,5 @@ class CommentarieForm(ModelForm):
             'class': 'form-control',
         })
         self.fields['image'].widget.attrs.update({
-            'class': 'form-control',
+            'class': 'form-control-file',
         })

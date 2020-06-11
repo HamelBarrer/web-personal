@@ -13,3 +13,12 @@ class ProfileForm(ModelForm):
             'avatar': 'Imagen del perfil',
             'biography': 'Biografia',
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['avatar'].widget.attrs.update({
+            'class': 'form-control-file',
+        })
+        self.fields['biography'].widget.attrs.update({
+            'class': 'form-control',
+        })
