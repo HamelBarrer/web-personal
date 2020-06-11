@@ -28,27 +28,11 @@
                         </p>
                     {% endif %}
                 </div>
-                <a href="" class="btn btn-success btn-sm mb-2">Editar</a>
+                <a href="{% url 'profiles:edit' profile.id %}" class="btn btn-success btn-sm mb-2">Editar</a>
             </div>
         </div>
     </div>
-    <!-- <div class="cell-sm-12 cell-md-4">
-        {% if profile.avatar %}
-            <div class="img-container drop-shadow">
-                <img src="{{ profile.avatar.url }}" alt="Imagen del Perfil">
-            </div>
-            <div class="mt-2">
-                <a href="#" class="button primary">Cambiar foto</a>
-            </div>
-        {% endif %}
+    <div class="col-sm-12 col-md-7">
     </div>
-    <div class="cell-sm-12 cell-md-8">
-        <div class="card">
-            <div class="card-header">
-                Nombre de Usuario: {{ profile.user.username }}
-                Biografia: {{ profile.biography }}
-            </div>
-        </div>
-    </div> -->
 </div>
 {% endblock %}

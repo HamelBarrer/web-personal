@@ -15,3 +15,16 @@ def profile_view(request):
     return render(request, template_name, {
         'profile': profile,
     })
+
+
+@login_required(login_url='users:login')
+def edit_view(request, id):
+    template_name = 'profiles/snippets/edit_profile.html'
+    form = ProfileForm(request.POST)
+    if request.method == 'POST' and form.is_valid():
+        avatar = request.method.POST.get('avatar')
+        biography = request.method.POST.get('biography')
+
+    return render(request, template_name, {
+        'form': form,
+    })
