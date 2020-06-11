@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import View
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from users.forms import UserForm
@@ -31,6 +31,7 @@ def edit_view(request, id):
         if profile_form.is_valid() and user_form.is_valid():
             profile_form.save()
             user_form.save()
+            messages.success(request, f'La informacion del perfil a sido modificada')
             return redirect('profiles:profil')
 
     return render(request, template_name, {

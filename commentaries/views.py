@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import ListView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -22,11 +23,12 @@ class CommentarieListView(LoginRequiredMixin, ListView):
         return context
 
 
-class CommentarieCreateView(LoginRequiredMixin,CreateView):
+class CommentarieCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     login_url = 'users:login'
     template_name = 'commentaries/add_commentarie.html'
     model = Commentarie
     form_class = CommentarieForm
+    success_message = 'El comentario a sido creado exitosamente'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
