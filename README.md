@@ -4,7 +4,7 @@ Herramientas
 
 Back end hecho en django https://www.djangoproject.com/
 
-Framework Css Booststrap 4 https://getbootstrap.com/
+Framework Css Bootstrap 4 https://getbootstrap.com/
 
 Iconos Font Awesome https://fontawesome.com/
 

@@ -23,7 +23,7 @@ def profile_view(request):
 def edit_view(request, id):
     template_name = 'profiles/snippets/edit_profile.html'
 
-    profile = Profile.objects.get(user=request.user)
+    profile = Profile.objects.get(user=id)
     profile_form = ProfileForm(
         request.POST, request.FILES, instance=profile)
     user_form = UserForm(request.POST, instance=request.user)
@@ -31,7 +31,8 @@ def edit_view(request, id):
         if profile_form.is_valid() and user_form.is_valid():
             profile_form.save()
             user_form.save()
-            messages.success(request, f'La informacion del perfil a sido modificada')
+            messages.success(
+                request, f'La informacion del perfil a sido modificada')
             return redirect('profiles:profil')
 
     return render(request, template_name, {
